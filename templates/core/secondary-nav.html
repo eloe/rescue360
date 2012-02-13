@@ -1,0 +1,22 @@
+{% load navigation_tags %}
+<div class="level2-nav">
+	<div class="level2-nav-wrap">
+		<h1 class="h1">{{ navigationNode.name }}</h1>
+		<div class="search">
+		</div>
+		{% if secondaryNavigation %}
+			<ul class="tabs">
+				{% for secNavNode in secondaryNavigation %}
+					<li>
+						{% if navigationNode.id == secNavNode.id %}
+							<a class="active" href="{% url core.views.page secNavNode.parentNode.slug secNavNode.slug secNavNode.id %}">
+						{% else %}
+							<a class="active" href="{% url core.views.page secNavNode.parentNode.slug secNavNode.slug secNavNode.id %}">						
+						{% endif %}
+						{{ secNavNode.name }}</a></li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+		<div style="clear:both;"></div>
+	</div>
+</div>

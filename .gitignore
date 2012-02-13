@@ -1,0 +1,9 @@
+*.pyc
+*.pyo
+*.swp
+*.un~
+*.db
+static_root/
+*.sublime-project
+*.DS_STORE
+*~
