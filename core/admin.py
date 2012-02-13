@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django import forms
-from rescue360.core.models import NavigationNode, Content
+from core.models import NavigationNode, Content
 
 class NavigationNodeAdmin(admin.ModelAdmin):
 	fieldsets = [
