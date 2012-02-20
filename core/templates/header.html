@@ -1,0 +1,16 @@
+{% load navigation_tags %}
+<div class="header" style="background:url('{{ STATIC_URL }}images/bg-test.png') top center">
+	<div class="glass">
+		<div class="main-nav">
+			<img class="site-logo" src="{{ STATIC_URL }}images/logo.png" />
+			<ul>
+				{% get_top_navigation as topNavigation %}
+				{% if topNavigation %}
+					{% for navigationNode in topNavigation %}
+						<li><a class="" href="{% url core.views.top_navigation navigationNode.slug %}">{{ navigationNode.name }}</a></li>
+					{% endfor %}
+				{% endif %}
+			</ul>
+		</div>
+	</div>
+</div>
