@@ -78,11 +78,11 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'urls'
-print PROJECT_DIR
+
 TEMPLATE_DIRS = (
     PROJECT_DIR.child('core').child('templates'),
 )
-print TEMPLATE_DIRS
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
