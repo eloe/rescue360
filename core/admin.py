@@ -13,7 +13,7 @@ class NavigationNodeAdmin(admin.ModelAdmin):
 	
 class ContentAdmin(admin.ModelAdmin):
 	fieldsets = [
-	    ('Information', {'fields': ['name', 'navigationNode', 'hide', 'externalURL', 'description']}),
+	    ('Information', {'fields': ['name', 'navigationNode', 'hide', 'externalURL', 'image', 'description']}),
 	]
 	ordering = ('createdDate', 'lastModified',)
 	list_display = ('name', 'navigationNode', 'hide')
