@@ -36,7 +36,7 @@ TWITTER_USERNAME='hardlycode'
 MEDIA_ROOT = PROJECT_DIR.child('media')
 MEDIA_URL = '/media/'
 
-STATIC_ROOT = PROJECT_DIR.child('static')
+STATIC_ROOT = PROJECT_DIR.child('core').child('static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
 
@@ -78,11 +78,11 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'urls'
-
+print PROJECT_DIR
 TEMPLATE_DIRS = (
-    PROJECT_DIR.child('templates'),
+    PROJECT_DIR.child('core').child('templates'),
 )
-
+print TEMPLATE_DIRS
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -93,7 +93,6 @@ INSTALLED_APPS = (
 	'epio_commands',
     'django.contrib.admin',
 	'core',
-    'rescue360',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
@@ -115,4 +114,3 @@ LOGGING = {
         },
     }
 }
-
