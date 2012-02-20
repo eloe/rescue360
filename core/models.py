@@ -20,6 +20,7 @@ class NavigationNode(SlugMixin):
 class Content(ImageMixin):
     navigationNode = models.ForeignKey('NavigationNode')
     name = models.CharField(max_length=50)
+    subtext = models.CharField(max_length=50,blank=True)
     description = models.TextField()
     externalURL = models.URLField()
     hide = models.BooleanField()
