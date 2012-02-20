@@ -3,4 +3,4 @@ epio
 Unipath
 django-redis-cache
 fabric
-http://dl.dropbox.com/u/3955793/hardlycode2.zip
+https://github.com/eloe/hardlycode-lib/tarball/master
