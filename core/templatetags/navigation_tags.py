@@ -24,5 +24,5 @@ class TopNavigationNode(Node):
         self.context_var = context_var
  
     def render(self, context):
-        context[self.context_var] = NavigationNode.objects.filter(parentNode=None)
+        context[self.context_var] = NavigationNode.objects.filter(parentNode=None).order_by('-id')
         return ''
