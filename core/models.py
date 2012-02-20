@@ -1,5 +1,5 @@
 from django.db import models
-from hardlycode.util.mixins.models import SlugMixin
+from hardlycode.util.mixins.models import SlugMixin, ImageMixin
 
 class NavigationNode(SlugMixin):
     name = models.CharField(max_length=50)
