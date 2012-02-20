@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     (r'^admin/', include(admin.site.urls)),
+    (r'^favicon\.ico$', 'django.views.generic.simple.redirect_to', {'url': '/static/images/favicon.ico'}),
 	(r'^$', 'core.views.default'),
     (r'^(?P<parent_slug>.+)/(?P<secondary_slug>.+)/(?P<slug>.+)/(?P<navigation_node_id>.+)/$', 'core.views.content_page'),
     (r'^(?P<parent_slug>.+)/(?P<slug>.+)/(?P<navigation_node_id>.+)/$', 'core.views.page'),
