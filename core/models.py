@@ -17,7 +17,7 @@ class NavigationNode(SlugMixin):
     def __unicode__(self):
         return u"%s" % self.adminName
         
-class Content(models.Model):
+class Content(ImageMixin):
     navigationNode = models.ForeignKey('NavigationNode')
     name = models.CharField(max_length=50)
     description = models.TextField()
