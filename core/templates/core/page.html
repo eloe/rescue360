@@ -5,10 +5,9 @@
 {% include 'core/left-nav.html' %}
 <!-- start content column -->
 <div class="content-col">
-	{% include 'core/list-item.html' %}
-	{% include 'core/list-item.html' %}
-	{% include 'core/list-item.html' %}
-	{% include 'core/list-item.html' %}
+	{% for contentItem in contentItems %}
+		{% include 'core/list-item.html' with content=contentItem %}
+	{% endfor %}
 </div>
 <!-- end content column -->
 {% endblock %}

@@ -1,17 +1,13 @@
 <!-- start list item -->
 <div class="list-item">
 	<div class="list-image">
-		<img src="http://www.noaanews.noaa.gov/stories2011/images/sarsatrescue.jpg" alt="This is a helecopterrr" />
-		<a class="button" href="">Button Text</a>
+		<img src="{{ content.image.url }}" alt="{{ content.name }}" />
+		<a class="button" href="{{ content.externalURL }}">View</a>
 	</div>
 	<div class="list-content"> 
-		<div class="h2"><a href="">Lorem ipsum dolor sit amet</a></div>
-		<div class="subtext">
-			Neque porro quisquam.
-		</div>
-		<div class="p">
-			At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
-		</div>
+		<div class="h2"><a href="">{{ content.name }}</a></div>
+		<div class="subtext">{{ content.subtext }}</div>
+		<div class="p">{{ content.description }}</div>
 	</div>
 </div>
 <!-- end list item -->

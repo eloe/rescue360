@@ -27,7 +27,8 @@ def content_page(request, parent_slug, secondary_slug, slug, navigation_node_id,
     navigationNode = NavigationNode.objects.get(id=navigation_node_id)
     leftNavigation = NavigationNode.objects.filter(parentNode__id=navigationNode.parentNode.id)
     secondaryNavigation = NavigationNode.objects.filter(parentNode__slug=parent_slug)
-    return render_with_context(request, template_name, { 'navigationNode' : navigationNode, 'secondaryNavigation' : secondaryNavigation, 'leftNavigation' : leftNavigation })
+    contentItems = Content.objects.filter(navigationNode__id=navigationNode.id).order_by('-createdDate')
+    return render_with_context(request, template_name, { 'navigationNode' : navigationNode, 'secondaryNavigation' : secondaryNavigation, 'leftNavigation' : leftNavigation, 'contentItems' : contentItems })
     
 def _get_secondary_navigation(slug):
     secondaryNavigation = NavigationNode.objects.filter(parentNode__slug=slug)
