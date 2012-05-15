@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+
+{% include 'core/left-nav.html' %}
+
+<!-- start content column -->
+<div class="content-col">
+
+	{% for navigationNode in breadcrumb %}
+		<a href="">
+			{{ navigationNode.name }}
+		</a>
+
+		{% if not forloop.last %}
+			>
+		{% endif %}
+		
+	{% endfor %}
+
+	<h2>Recent Updates</h2>
+	
+	{% for contentItem in contentItems %}
+		{% include 'core/list-item.html' with content=contentItem %}
+	{% endfor %}
+</div>
+<!-- end content column -->
+{% endblock %}
