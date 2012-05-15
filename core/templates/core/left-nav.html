@@ -1,9 +1,18 @@
 <!-- start left nav -->
-{% if leftNavigation %}
+{% if thirdNavigation %}
 <div class="nav-col">
 	<ul>
-		{% for navigationNode in leftNavigation %}
-			<li><a class="" href="{% url core.views.content_page navigationNode.parentNode.parentNode.slug navigationNode.parentNode.slug navigationNode.slug navigationNode.id %}">{{ navigationNode.name }}</a></li>
+		{% for navigationNode in thirdNavigation %}
+			<li>
+				<a class="" href="{% url core.views.content_page navigationNode.parentNode.parentNode.slug navigationNode.parentNode.slug navigationNode.slug navigationNode.id %}">{{ navigationNode.name }}</a>
+				{% if navigationNode.childNodes %}
+					<ul>
+						{% for fourthNavigationNode in navigationNode.childNodes %}
+							<li><a href="#">- {{ fourthNavigationNode.name }}</a></li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			</li>
 		{% endfor %}
 	</ul>
 </div>

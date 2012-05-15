@@ -26,6 +26,11 @@ class NavigationNode(SlugMixin):
         if self.parentNode:
             array.append(self.parentNode._get_breadcrumb_child(array))
             
+    def _get_children(self):
+        return NavigationNode.objects.filter(parentNode__id=self.id)
+
+    childNodes = property(_get_children)            
+            
     class Meta:
         ordering = ('createdDate',)
         verbose_name_plural = 'Navigation Nodes'
