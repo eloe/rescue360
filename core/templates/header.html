@@ -6,8 +6,13 @@
 			<ul>
 				{% get_top_navigation as topNavigation %}
 				{% if topNavigation %}
-					{% for navigationNode in topNavigation %}
-						<li><a class="" href="{% url core.views.top_navigation navigationNode.slug %}">{{ navigationNode.name }}</a></li>
+					{% for node in topNavigation %}
+						{% if navigationNode and navigationNode.id == node.id %}
+							<li class="active" >
+						{% else %}
+							<li>
+						{% endif %}
+							<a href="{% url core.views.top_navigation node.slug %}">{{ node.name }}</a></li>							
 					{% endfor %}
 				{% endif %}
 			</ul>

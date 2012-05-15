@@ -2,13 +2,22 @@
 {% if thirdNavigation %}
 <div class="nav-col">
 	<ul>
-		{% for navigationNode in thirdNavigation %}
-			<li>
-				<a class="" href="{% url core.views.content_page navigationNode.parentNode.parentNode.slug navigationNode.parentNode.slug navigationNode.slug navigationNode.id %}">{{ navigationNode.name }}</a>
-				{% if navigationNode.childNodes %}
+		{% for thirdNavigationNode in thirdNavigation %}
+			{% if navigationNode and navigationNode.id == thirdNavigationNode.id %}
+				<li class="active" >
+			{% else %}
+				<li>
+			{% endif %}
+				<a class="" href="{% url core.views.content_page thirdNavigationNode.parentNode.parentNode.slug thirdNavigationNode.parentNode.slug thirdNavigationNode.slug thirdNavigationNode.id %}">{{ thirdNavigationNode.name }}</a>
+				{% if thirdNavigationNode.childNodes %}
 					<ul>
-						{% for fourthNavigationNode in navigationNode.childNodes %}
-							<li><a href="#">- {{ fourthNavigationNode.name }}</a></li>
+						{% for fourthNavigationNode in thirdNavigationNode.childNodes %}
+							{% if navigationNode and navigationNode.id == fourthNavigationNode.id %}
+								<li class="active" >
+							{% else %}
+								<li>
+							{% endif %}
+							<a href="#">- {{ fourthNavigationNode.name }}</a></li>
 						{% endfor %}
 					</ul>
 				{% endif %}

@@ -7,12 +7,12 @@
 		{% if secondaryNavigation %}
 			<ul class="tabs">
 				{% for secNavNode in secondaryNavigation %}
-					<li>
-						{% if navigationNode.id == secNavNode.id %}
-							<a class="active" href="{% url core.views.page secNavNode.parentNode.slug secNavNode.slug secNavNode.id %}">
-						{% else %}
-							<a class="active" href="{% url core.views.page secNavNode.parentNode.slug secNavNode.slug secNavNode.id %}">						
-						{% endif %}
+					{% if navigationNode.id == secNavNode.id %}
+						<li class="active">
+					{% else %}
+						<li>
+					{% endif %}
+						<a href="{% url core.views.page secNavNode.parentNode.slug secNavNode.slug secNavNode.id %}">
 						{{ secNavNode.name }}</a></li>
 				{% endfor %}
 			</ul>

@@ -12,10 +12,10 @@ import datetime
 def default(request, template_name='core/default.html'):
     return render_with_context(request, template_name, { })
 
-def top_navigation(request, slug, template_name='core/page.html'):
+def top_navigation(request, slug, template_name='core/recent-updates.html'):
     navigationNode = NavigationNode.objects.get(slug=slug)
     secondaryNavigation = NavigationNode.objects.filter(parentNode__slug=slug)
-    contentItems = Content.objects.filter(navigationNode__parentNode__id=navigationNode.id).order_by('-createdDate')
+    contentItems = Content.objects.filter(navigationNode__parentNode__parentNode__id=navigationNode.id).order_by('-createdDate')
     return render_with_context(request, template_name, { 'navigationNode' : navigationNode, 'breadcrumb': None, 'secondaryNavigation' : secondaryNavigation, 'contentItems' : contentItems })
     
 def page(request, parent_slug, slug, navigation_node_id, template_name='core/recent-updates.html'):
