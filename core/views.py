@@ -15,22 +15,22 @@ def default(request, template_name='core/default.html'):
 def top_navigation(request, slug, template_name='core/page.html'):
     navigationNode = NavigationNode.objects.get(slug=slug)
     secondaryNavigation = NavigationNode.objects.filter(parentNode__slug=slug)
-    contentItems = Content.objects.filter(navigationNode__id=navigationNode.id).order_by('-createdDate')
-    return render_with_context(request, template_name, { 'navigationNode' : navigationNode, 'secondaryNavigation' : secondaryNavigation, 'contentItems' : contentItems })
+    contentItems = Content.objects.filter(navigationNode__parentNode__id=navigationNode.id).order_by('-createdDate')
+    return render_with_context(request, template_name, { 'navigationNode' : navigationNode, 'breadcrumb': None, 'secondaryNavigation' : secondaryNavigation, 'contentItems' : contentItems })
     
 def page(request, parent_slug, slug, navigation_node_id, template_name='core/page.html'):
     navigationNode = NavigationNode.objects.get(id=navigation_node_id)
     leftNavigation = NavigationNode.objects.filter(parentNode__id=navigationNode.id)
     secondaryNavigation = NavigationNode.objects.filter(parentNode__id=navigationNode.parentNode.id)
-    contentItems = Content.objects.filter(navigationNode__id=navigationNode.id).order_by('-createdDate')
-    return render_with_context(request, template_name, { 'navigationNode' : navigationNode, 'secondaryNavigation' : secondaryNavigation, 'leftNavigation' : leftNavigation, 'contentItems' : contentItems })
+    contentItems = Content.objects.filter(navigationNode__parentNode__id=navigationNode.id).order_by('-createdDate')
+    return render_with_context(request, template_name, { 'navigationNode' : navigationNode, 'breadcrumb': navigationNode.get_breadcrumb(), 'secondaryNavigation' : secondaryNavigation, 'leftNavigation' : leftNavigation, 'contentItems' : contentItems })
     
 def content_page(request, parent_slug, secondary_slug, slug, navigation_node_id, template_name='core/page.html'):
     navigationNode = NavigationNode.objects.get(id=navigation_node_id)
     leftNavigation = NavigationNode.objects.filter(parentNode__id=navigationNode.parentNode.id)
     secondaryNavigation = NavigationNode.objects.filter(parentNode__slug=parent_slug)
     contentItems = Content.objects.filter(navigationNode__id=navigationNode.id).order_by('-createdDate')
-    return render_with_context(request, template_name, { 'navigationNode' : navigationNode, 'secondaryNavigation' : secondaryNavigation, 'leftNavigation' : leftNavigation, 'contentItems' : contentItems })
+    return render_with_context(request, template_name, { 'navigationNode' : navigationNode, 'breadcrumb': navigationNode.get_breadcrumb(), 'secondaryNavigation' : secondaryNavigation, 'leftNavigation' : leftNavigation, 'contentItems' : contentItems })
     
 def _get_secondary_navigation(slug):
     secondaryNavigation = NavigationNode.objects.filter(parentNode__slug=slug)

@@ -9,7 +9,23 @@ class NavigationNode(SlugMixin):
     hide = models.BooleanField()
     createdDate = models.DateTimeField(auto_now_add=True)
     slugValue = 'name'
-
+    
+    def get_breadcrumb(self):
+        array = []
+        self._get_breadcrumb_child(array)
+        
+        nodes = []
+        for node in array:
+            if node:
+                nodes.append(node)
+        
+        return nodes
+    
+    def _get_breadcrumb_child(self, array):
+        array.insert(0, self)
+        if self.parentNode:
+            array.append(self.parentNode._get_breadcrumb_child(array))
+            
     class Meta:
         ordering = ('createdDate',)
         verbose_name_plural = 'Navigation Nodes'

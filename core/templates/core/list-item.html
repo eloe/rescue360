@@ -6,6 +6,8 @@
 	</div>
 	<div class="list-content"> 
 		<div class="h2"><a href="">{{ content.name }}</a></div>
+		<div class="p">By: Eric Loes</div>
+		<div class="subtext">{{ content.createdDate|date:"F d, Y" }} posted in <a href="">{{ content.navigationNode.name }}</a></div>
 		<div class="subtext">{{ content.subtext }}</div>
 		<div class="p">{{ content.description }}</div>
 	</div>
