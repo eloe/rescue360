@@ -1,7 +1,9 @@
 <!-- start list item -->
 <div class="list-item">
 	<div class="list-image">
+		{% if content.image %}
 		<img src="{{ content.image.url }}" alt="{{ content.name }}" />
+		{% endif %}
 		<a class="button" href="{{ content.externalURL }}">View</a>
 	</div>
 	<div class="list-content"> 
