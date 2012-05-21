@@ -12,13 +12,13 @@ import datetime
 def default(request, template_name='core/default.html'):
     return render_with_context(request, template_name, { })
 
-def top_navigation(request, slug, template_name='core/recent-updates.html'):
+def first_level_page(request, slug, template_name='core/recent-updates.html'):
     navigationNode = NavigationNode.objects.get(slug=slug)
     secondaryNavigation = NavigationNode.objects.filter(parentNode__slug=slug)
     contentItems = Content.objects.filter(navigationNode__parentNode__parentNode__id=navigationNode.id).order_by('-createdDate')
     return render_with_context(request, template_name, { 'navigationNode' : navigationNode, 'breadcrumb': None, 'secondaryNavigation' : secondaryNavigation, 'contentItems' : contentItems })
     
-def page(request, parent_slug, slug, navigation_node_id, template_name='core/recent-updates.html'):
+def second_level_page(request, parent_slug, slug, navigation_node_id, template_name='core/recent-updates.html'):
     navigationNode = NavigationNode.objects.get(id=navigation_node_id)
     secondaryNavigation = NavigationNode.objects.filter(parentNode__id=navigationNode.parentNode.id)
     thirdNavigation = NavigationNode.objects.filter(parentNode__id=navigationNode.id)
@@ -32,10 +32,17 @@ def page(request, parent_slug, slug, navigation_node_id, template_name='core/rec
     contentItems = Content.objects.filter(navigationNode__parentNode__id=navigationNode.id).order_by('-createdDate')
     return render_with_context(request, template_name, { 'navigationNode' : navigationNode, 'breadcrumb': navigationNode.get_breadcrumb(), 'secondaryNavigation' : secondaryNavigation, 'thirdNavigation' : thirdNavigation, 'fourthNavigation': fourthNavigation, 'contentItems' : contentItems })
     
-def content_page(request, parent_slug, secondary_slug, slug, navigation_node_id, template_name='core/page.html'):
+def third_level_page(request, parent_slug, secondary_slug, slug, navigation_node_id, template_name='core/page.html'):
     navigationNode = NavigationNode.objects.get(id=navigation_node_id)
     secondaryNavigation = NavigationNode.objects.filter(parentNode__slug=parent_slug)
     thirdNavigation = NavigationNode.objects.filter(parentNode__id=navigationNode.parentNode.id)
+    contentItems = Content.objects.filter(navigationNode__id=navigationNode.id).order_by('-createdDate')
+    return render_with_context(request, template_name, { 'navigationNode' : navigationNode, 'breadcrumb': navigationNode.get_breadcrumb(), 'secondaryNavigation' : secondaryNavigation, 'thirdNavigation' : thirdNavigation, 'contentItems' : contentItems })
+
+def fourth_level_page(request, parent_slug, secondary_slug, third_slug, slug, navigation_node_id, template_name='core/page.html'):
+    navigationNode = NavigationNode.objects.get(id=navigation_node_id)
+    secondaryNavigation = NavigationNode.objects.filter(parentNode__slug=parent_slug)
+    thirdNavigation = NavigationNode.objects.filter(parentNode__slug=secondary_slug)
     contentItems = Content.objects.filter(navigationNode__id=navigationNode.id).order_by('-createdDate')
     return render_with_context(request, template_name, { 'navigationNode' : navigationNode, 'breadcrumb': navigationNode.get_breadcrumb(), 'secondaryNavigation' : secondaryNavigation, 'thirdNavigation' : thirdNavigation, 'contentItems' : contentItems })
     

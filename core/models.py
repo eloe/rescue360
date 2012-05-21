@@ -10,6 +10,20 @@ class NavigationNode(SlugMixin):
     createdDate = models.DateTimeField(auto_now_add=True)
     slugValue = 'name'
     
+    def get_absolute_url(self):
+        breadcrumb = self.get_breadcrumb()
+        
+        url = "/"
+
+        for crumb in breadcrumb:
+            url += "%s/" % crumb.slug
+            
+        if len(breadcrumb) > 1:
+            url += "%i/" % self.id
+
+        return url
+        
+            
     def get_breadcrumb(self):
         array = []
         self._get_breadcrumb_child(array)

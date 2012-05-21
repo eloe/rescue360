@@ -7,12 +7,12 @@
 		{% if secondaryNavigation %}
 			<ul class="tabs">
 				{% for secNavNode in secondaryNavigation %}
-					{% if navigationNode.id == secNavNode.id %}
+					{% if navigationNode.id == secNavNode.id or secNavNode in breadcrumb %}
 						<li class="active">
 					{% else %}
 						<li>
 					{% endif %}
-						<a href="{% url core.views.page secNavNode.parentNode.slug secNavNode.slug secNavNode.id %}">
+						<a href="{{ secNavNode.get_absolute_url }}">
 						{{ secNavNode.name }}</a></li>
 				{% endfor %}
 			</ul>

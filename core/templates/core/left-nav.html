@@ -3,21 +3,21 @@
 <div class="nav-col">
 	<ul>
 		{% for thirdNavigationNode in thirdNavigation %}
-			{% if navigationNode and navigationNode.id == thirdNavigationNode.id %}
+			{% if navigationNode and navigationNode.id == thirdNavigationNode.id or thirdNavigationNode in breadcrumb %}
 				<li class="active" >
 			{% else %}
 				<li>
 			{% endif %}
-				<a class="" href="{% url core.views.content_page thirdNavigationNode.parentNode.parentNode.slug thirdNavigationNode.parentNode.slug thirdNavigationNode.slug thirdNavigationNode.id %}">{{ thirdNavigationNode.name }}</a>
-				{% if thirdNavigationNode.childNodes %}
+				<a href="{{ thirdNavigationNode.get_absolute_url }}">{{ thirdNavigationNode.name }}</a>
+				{% if navigationNode.id == thirdNavigationNode.id or navigationNode.parentNode.id == thirdNavigationNode.id and thirdNavigationNode.childNodes %}
 					<ul>
 						{% for fourthNavigationNode in thirdNavigationNode.childNodes %}
-							{% if navigationNode and navigationNode.id == fourthNavigationNode.id %}
+							{% if navigationNode and navigationNode.id == fourthNavigationNode.id or fourthNavigationNode in breadcrumb %}
 								<li class="active" >
 							{% else %}
 								<li>
 							{% endif %}
-							<a href="#">- {{ fourthNavigationNode.name }}</a></li>
+							<a href="{{ fourthNavigationNode.get_absolute_url }}">{{ fourthNavigationNode.name }}</a>
 						{% endfor %}
 					</ul>
 				{% endif %}

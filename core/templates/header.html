@@ -1,3 +1,4 @@
+{% load set_tag %}
 {% load navigation_tags %}
 <div class="header" style="background:url('{{ STATIC_URL }}images/bg-test.png') top center">
 	<div class="glass">
@@ -7,12 +8,12 @@
 				{% get_top_navigation as topNavigation %}
 				{% if topNavigation %}
 					{% for node in topNavigation %}
-						{% if navigationNode and navigationNode.id == node.id %}
-							<li class="active" >
+						{% if navigationNode and navigationNode.id == node.id or node in breadcrumb %}
+							<li class="active">
 						{% else %}
 							<li>
 						{% endif %}
-							<a href="{% url core.views.top_navigation node.slug %}">{{ node.name }}</a></li>							
+							<a href="{{ node.get_absolute_url }}">{{ node.name }} - {{ isActive }}</a></li>
 					{% endfor %}
 				{% endif %}
 			</ul>
