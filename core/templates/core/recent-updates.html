@@ -6,19 +6,23 @@
 
 <!-- start content column -->
 <div class="content-col">
+	
+	<div class="content-top">
+		<div class="top-bread-crumb">
+		{% for navigationNode in breadcrumb %}
+			<a href="">
+				{{ navigationNode.name }}
+			</a>
 
-	{% for navigationNode in breadcrumb %}
-		<a href="">
-			{{ navigationNode.name }}
-		</a>
-
-		{% if not forloop.last %}
-			>
-		{% endif %}
+			{% if not forloop.last %}
+				>
+			{% endif %}
 		
-	{% endfor %}
+		{% endfor %}
+		</div>
 
-	<h2>Recent Updates</h2>
+		<h2 class="h1">Recent Updates</h2>
+	</div>
 	
 	{% for contentItem in contentItems %}
 		{% include 'core/list-item.html' with content=contentItem %}

@@ -6,15 +6,26 @@
 
 <!-- start content column -->
 <div class="content-col">
+ 
+	<div class="content-top">
+		<div class="top-bread-crumb">
+	 
 	{% for navigationNode in breadcrumb %}
 		<a href="{{ navigationNode.get_absolute_url }}">
 			{{ navigationNode.name }}
 		</a>		
-		{% if not forloop.last %}
-			>
-		{% endif %}		
-	{% endfor %}
 
+			{% if not forloop.last %}
+				>
+			{% endif %}
+		
+ 
+ 
+		{% endfor %}
+		</div>
+		<h2 class="h1">Header Here Remove level from bread</h2>
+	</div>	
+ 
 	{% for contentItem in contentItems %}
 		{% include 'core/list-item.html' with content=contentItem %}
 	{% endfor %}
