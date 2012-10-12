@@ -5,8 +5,10 @@ if 'EPIO' in os.environ:
     from .epio import *
 elif 'crazyweber' ==  os.environ['USER']:
     from .webfaction import *
+elif 'eloe' == os.environ['USER']:
+    from .eric import *
 else:
     try:
-        from .local import *
+        from .rick import *
     except ImportError:
         from .base import *
