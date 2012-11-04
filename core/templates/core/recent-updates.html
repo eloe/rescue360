@@ -6,22 +6,24 @@
 
 <!-- start content column -->
 <div class="content-col">
-		<div class="content-top">
+	<div class="content-top">
 		<div class="top-bread-crumb">
-
-		{% for navigationNode in breadcrumb %}
-			{% if not forloop.last %}
-				<a href="{{ navigationNode.get_absolute_url }}">
-					{{ navigationNode.name }}
-				</a>
-				{% if forloop.revcounter0 != 1 %}
-				&nbsp;>
+			{% for navigationNode in breadcrumb %}
+				{% if not forloop.last %}
+					<a href="{{ navigationNode.get_absolute_url }}">
+						{{ navigationNode.name }}
+					</a>
+					{% if forloop.revcounter0 != 1 %}
+					&nbsp;>
+					{% endif %}
+				{% else %}
+				</div>
+				<h2 class="h1">{{ navigationNode.name }}</h2>
 				{% endif %}
-			{% else %}
-			</div>
-			<h2 class="h1">{{ navigationNode.name }}</h2>
+			{% endfor %}
+			{% if not breadcrumb %}
+				</div>
 			{% endif %}
-		{% endfor %}
 		<div class="h2">Recent Updates</div>
 	</div>
 
