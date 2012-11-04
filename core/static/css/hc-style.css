@@ -95,7 +95,7 @@ font-weight:light;
 	-moz-border-radius:7px;
 	-webkit-border-radius:7px;
 	position:relative;
-	min-height:300px;
+	min-height:800px;
 }
 .list-item {
 	margin-bottom:30px;
@@ -175,8 +175,8 @@ font-weight:light;
 	border-top:1px solid #FFFFFF;
 }
 .ad-col {
-	width:160px;
-	padding:30px;
+	width:170px;
+	padding:30px 30px 30px 20px;
 	border:1px solid #C1C1C1;
 	border-left:none;
 	background:#F8F8F8;
@@ -297,6 +297,7 @@ margin-bottom:20px;
 	-webkit-text-shadow:0px 1px 0px #000;
 	background:rgba(255, 255, 255, .0);
 }
+ 
 .main-nav li.active a {
 	background:#df3a2f;
 	background:rgba(223, 58, 47, .4);
@@ -337,24 +338,46 @@ position:absolute;
 left:0px;
 top:93px;
 width:100%;
-	box-shadow: inset 0px 1px 3px #000;
+	box-shadow: inset 0px 1px 10px #000;
 }
 
-.home-page .content-col, .home-page .ad-col {
-	margin-top:400px;
+.homepage  .ad-col {
+	margin-top:390px;
 	
+}
+.homepage  .content-col {
+	margin-top:380px;
+	
+}
+.no-left .content-col {
+	width:600px;
+}
+.no-left .content-col .list-content {
+	width:430px;
+	
+}
+.homepage .hp-recent {
+	text-transform:uppercase;
+	font-size:30px;
 }
 .so-much-more {
 	color:#d4d4d4;
-	width:800px;
+	width:820px;
 	margin:200px auto;
 	background:rgba(0, 0, 0, .8);
 	border-radius:5px;
 	padding:30px;
 	border:2px solid #000;
-	box-shadow: inset 0px 1px 0px #666, 0px 1px 3px #000;
+	box-shadow: inset 0px 1px 0px #666;
 }
- 
+.so-much-more a {
+	text-decoration:underline;
+	color:#dc0707;
+} 
 .so-much-more .h1 {
 margin-bottom:.5em;	
+}
+
+.video-unit {
+	margin:1em 0em 3em 0em;
 }
