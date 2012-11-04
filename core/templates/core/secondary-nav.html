@@ -1,7 +1,17 @@
 {% load navigation_tags %}
 <div class="level2-nav">
 	<div class="level2-nav-wrap">
-		<h1 class="page-label">{{ navigationNode.name }}</h1>
+		<h1 class="page-label">
+			{% if navigationNode.parentNode.parentNode %}
+				{{ navigationNode.parentNode.parentNode.name }}
+			{% else %}
+				{% if navigationNode.parentNode %}
+					{{ navigationNode.parentNode.name }}
+				{% else %}
+					{{ navigationNode.name }}
+				{% endif %}
+			{% endif %}
+		</h1>
 		<div class="search">
 		</div>
 		{% if secondaryNavigation %}
