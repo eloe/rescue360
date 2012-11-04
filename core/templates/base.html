@@ -5,7 +5,7 @@
 <head>
 	<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
 	<title>{% block title %}Resuce 360{% endblock %}</title>
-	<link rel="stylesheet" type="text/css" media="screen" href="{{ STATIC_URL }}css/hc-style.css?" />	
+	<link rel="stylesheet" type="text/css" media="screen" href="{{ STATIC_URL }}css/hc-style.css?" />
 	<script type="text/javascript">
 
 	  var _gaq = _gaq || [];
@@ -20,8 +20,8 @@
 
 	</script>
 </head>
-<body>
-	{% include "header.html" %}	
+<body {% if not thirdNavigation %}class="no-left"{%endif%}>
+	{% include "header.html" %}
 	{% include "core/secondary-nav.html" %}
 	<!-- start content -->
 	<div class="content">
