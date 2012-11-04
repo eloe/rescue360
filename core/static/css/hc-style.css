@@ -116,7 +116,7 @@ font-weight:light;
 	float:left;
 	width:100%;
 }
-.list-content {
+.list-content p {
 	width:330px;
 	float:left;
 }
@@ -127,6 +127,7 @@ font-weight:light;
 .list-image {
 	width:115px;
 	float:right;
+	margin-left:20px;
 }
 .list-image img {
 	width:100%;
@@ -174,10 +175,15 @@ font-weight:light;
 .button:active {
 	background: #e1e1e1;
 }
-.posted-in {
+.posted-in, .subtext {
+	color:#939290;	
+ 
+}
+.post-date {
 	color:#939290;	
 	margin-bottom:1em;
 }
+
 .content {
 	background: #e4e4e3; /* Old browsers */
 	background: -moz-linear-gradient(top,  #e4e4e3 0%, #ffffff 100%); /* FF3.6+ */
@@ -334,6 +340,8 @@ font-style:italic;
 }
 .content-top {
 margin-bottom:20px;
+border-bottom:1px dashed #DBDBDB;
+padding-bottom:20px;
 }
 .page-label {
 font-family: "arvo";
