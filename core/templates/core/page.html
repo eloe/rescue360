@@ -10,7 +10,7 @@
 	<div class="content-top">
 		<div class="top-bread-crumb">
 
-	{% for navigationNode in breadcrumb %}
+		{% for navigationNode in breadcrumb %}
 			{% if not forloop.last %}
 				<a href="{{ navigationNode.get_absolute_url }}">
 					{{ navigationNode.name }}

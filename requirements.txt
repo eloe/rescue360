@@ -3,3 +3,5 @@ epio
 Unipath
 django-redis-cache
 fabric
+boto
+django-storages

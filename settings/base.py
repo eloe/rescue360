@@ -1,4 +1,5 @@
 from unipath import FSPath as Path
+import datetime
 
 PROJECT_DIR = Path(__file__).absolute().ancestor(2)
 
@@ -21,8 +22,18 @@ USE_L10N = True
 IMAGE_MAX_RESOLUTION=(800,600)
 IMAGE_THUMB_RESOLUTION=(140, 140)
 IMAGE_THUMB_SQUARED=True
+IMAGE_USE_S3=True
 
-LOGIN_REDIRECT_URL = '/'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+AWS_ACCESS_KEY_ID='AKIAIHC3NLUDSD3KCUTQ'
+AWS_SECRET_ACCESS_KEY='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'
+AWS_STORAGE_BUCKET_NAME='rescue360'
+AWS_S3_SECURE_URLS=False
+now = datetime.datetime.now()
+AWS_HEADERS = {
+    'Expires': 'Thu, 15 %d %d 20:00:00 GMT' % (now.month+1, now.year),
+    'Cache-Control': 'max-age=86400',
+}
 
 EMAIL_USE_TLS = True
 EMAIL_HOST='smtp.gmail.com'
@@ -74,7 +85,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-#   'hardlycode.middleware.blowfish.BlowfishMiddleware',    
+#   'hardlycode.middleware.blowfish.BlowfishMiddleware',
 )
 
 ROOT_URLCONF = 'urls'

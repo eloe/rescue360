@@ -16,7 +16,7 @@
     <div class="content-top">
         <div class="top-bread-crumb">
         {% for navigationNode in breadcrumb %}
-            <a href="">
+            <a href="{{ navigationNode.get_absolute_url }}">
                 {{ navigationNode.name }}
             </a>
 
