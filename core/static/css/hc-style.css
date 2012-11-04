@@ -340,7 +340,7 @@ width:100%;
 	box-shadow: inset 0px 1px 3px #000;
 }
 
-.home-page .content-col {
+.home-page .content-col, .home-page .ad-col {
 	margin-top:400px;
 	
 }
