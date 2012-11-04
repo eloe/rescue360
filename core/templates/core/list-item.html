@@ -23,7 +23,7 @@
 			{% for navigationNode in content.navigationNode.get_breadcrumb %}
 				<a href="{{ navigationNode.get_absolute_url }}">{{ navigationNode.name }}</a>
 				{% if not forloop.last %}
-					&nbsp;>
+					&nbsp;>&nbsp;
 				{% endif %}
 			{% endfor %}
 
