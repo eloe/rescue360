@@ -2,8 +2,36 @@
 {% load i18n %}
 {% block content %}
 <!-- start content column -->
+<div class="home-page">
+<div class="img-gal">
+	<div class="so-much-more">
+		<div class="h1">Much more coming soon</div>
+		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</div>
+
+	</div>
+</div>
+<!-- start content column -->
 <div class="content-col">
-This is the default page
+
+    <div class="content-top">
+        <div class="top-bread-crumb">
+        {% for navigationNode in breadcrumb %}
+            <a href="">
+                {{ navigationNode.name }}
+            </a>
+
+            {% if not forloop.last %}
+                >
+            {% endif %}
+
+        {% endfor %}
+        </div>
+        <div class="h2">Recent Updates</div>
+    </div>
+
+    {% for contentItem in contentItems %}
+        {% include 'core/list-item.html' with content=contentItem %}
+    {% endfor %}
 </div>
 <!-- end content column -->
 {% endblock %}
