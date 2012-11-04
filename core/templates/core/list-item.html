@@ -9,7 +9,17 @@
 	<div class="list-content">
 		<div class="h2">{{ content.name }}</div>
 		<div class="subtext">{{ content.subtext }}</div>
-		<div class="posted-in">{{ content.createdDate|date:"F d, Y" }} posted in <a href="{{ content.navigationNode.get_absolute_url }}">{{ content.navigationNode.name }}</a></div>
+		<div class="posted-in">{{ content.createdDate|date:"F d, Y" }} posted in
+
+			{% for navigationNode in content.navigationNode.get_breadcrumb %}
+				<a href="{{ navigationNode.get_absolute_url }}">{{ navigationNode.name }}</a>
+				{% if not forloop.last %}
+					&nbsp;>
+				{% endif %}
+			{% endfor %}
+
+
+		 </div>
 		<div class="p">{{ content.description }}</div>
 	</div>
 </div>
