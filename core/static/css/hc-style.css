@@ -385,6 +385,9 @@ width:100%;
 	top:93px;
 	width:100%;
 }
+.img-show {
+	background:#000;
+}
 .img-show div {
 	background-size:100% auto;
 	background-position:0%  50%;
@@ -395,13 +398,13 @@ width:100%;
 	width:100%;
 	box-shadow: inset 0px 1px 10px #000;
 }
-
+ 
 .homepage  .ad-col {
-	margin-top:390px;
+	margin-top:-20px;
 	
 }
 .homepage  .content-col {
-	margin-top:380px;
+	margin-top:-45px;
 	
 }
 .no-left .content-col {
@@ -418,14 +421,14 @@ width:100%;
 .so-much-more {
 	color:#d4d4d4;
 	width:820px;
-	margin:200px auto;
+	margin:280px auto 0px auto;
 	background:rgba(0, 0, 0, .8);
 	border-radius:5px;
 	padding:30px;
 	border:1px solid #000;
 	box-shadow: inset 0px 1px 0px #666;
 	position:relative;
-	top:30px;
+	top:-100px;
 	z-index:999;
  
 }
