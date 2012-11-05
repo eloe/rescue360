@@ -4,30 +4,20 @@
 		{% if content.image %}
 		<img src="{{ content.image.url }}" alt="{{ content.name }}" />
 		{% endif %}
-		<a class="button" href="{{ content.externalURL }}">View</a>
+		<a class="button" href="{{ content.externalURL }}" target="_blank">View</a>
 	</div>
-	
 	<div class="list-content">
 		<div class="h2">{{ content.name }}</div>
 		<div class="subtext">{{ content.subtext }}</div>
  		<div class="post-date">{{ content.createdDate|date:"F d, Y" }}</div>
-		
- 		
-		
-		
- 
 		<div class="p">{{ content.description }}</div>
-		
 		<div class="posted-in"><br/>Posted in
-
 			{% for navigationNode in content.navigationNode.get_breadcrumb %}
 				<a href="{{ navigationNode.get_absolute_url }}">{{ navigationNode.name }}</a>
 				{% if not forloop.last %}
 					&nbsp;>&nbsp;
 				{% endif %}
 			{% endfor %}
-
-
 		 </div>
 	</div>
 </div>
