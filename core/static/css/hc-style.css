@@ -141,6 +141,8 @@ font-weight:light;
 	border-radius:5px;
 	-webkit-border-radius:5px;
 	-moz-border-radius:5px;
+	background:#000;
+	display:block;
 }
 .list-content {
 	font-size:13px;
