@@ -33,13 +33,7 @@ font-family: "proxima-nova-sc-osf";
 font-weight:light;	
 
 }
-.content-body {
-	width:900px;
-	margin:auto;
-	padding-top:10px;
-	padding-bottom:20px;
 
-}
 .nav-col, .content-col, .ad-col {
 	float:left;
 }
@@ -237,7 +231,14 @@ font-size:18px;
 letter-spacing:2px;
 
 }
+.content-body {
+	padding-bottom:50px;
+	width:900px;
+	margin:auto;
+	padding-top:10px;
+	
 
+}
 .level2-nav {
 	background:url('../images/bg-texture.png');
 	border-bottom:1px solid #1C1C1C;
